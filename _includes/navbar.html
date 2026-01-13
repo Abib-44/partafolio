@@ -1,26 +1,63 @@
-<nav class="navbar">
-  <div class="navbar-left">
-    <a href="/" class="logo">realby</a>
-  </div>
+<!DOCTYPE html>
+<html lang="fr">
 
-  <ul class="navbar-center">
-    <li><a href="/timeline.html">chronologie<span class="badge">3</span></a></li>
-    <li><a href="/work.html">travail</a></li>
-    <li><a href="/about.html">à propos</a></li>
-    <li><a href="/story.html">histoire</a></li>
-    <li><a href="/tips.html">conseils<span class="badge">1</span></a></li>
-    <li class="dropdown">
-      <a href="#">plus</a>
-      <ul class="dropdown-menu">
-        <li><a href="/contact.html">contact</a></li>
-        <li><a href="/projects.html">projets</a></li>
-      </ul>
-    </li>
-  </ul>
+<head>
+  <meta charset="UTF-8">
+  <title>Contactez-moi</title>
+  <link rel="stylesheet" href="../assets/css/competences.css">
+  <link rel="stylesheet" href="../assets/css/contact.css">
+  <link rel="stylesheet" href="../assets/css/habbies.css">
+  <link rel="stylesheet" href="../assets/css/navbar.css">
+  <link rel="stylesheet" href="../assets/css/projects.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
 
-  <div class="navbar-right">
-    <a href="#" class="icon">⌂</a>
-    <a href="#" class="icon">✕</a>
-    <a href="#" class="icon">☼</a>
-  </div>
-</nav>
+  <link rel="shortcut icon"
+    href="../assets/img/avatar.jpeg"
+    type="image/x-icon">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+  <link rel="stylesheet" href="../assets/css/competences.css">
+</head>
+
+  <header class="header" id="header">
+    <nav class="nav container navbar">
+      <a href="/index.html" class="nav__logo"><img class="avatar" src="/assets/img/avatar.jpeg" alt="avatar"></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list grid">
+          <li class="nav__item">
+            <a href="../index.html" class="nav__link active-link">
+              <i class="uil uil-estate nav__icon"></i>Accueil
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="../pages/competences.html" class="nav__link">
+              <i class="uil uil-file-alt nav__icon"></i>Compétences
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="../pages/projects.html" class="nav__link">
+              <i class="uil uil-scenery nav__icon"></i>Projets
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="../pages/contact.html" class="nav__link">
+              <i class="uil uil-message nav__icon"></i>Contactez-moi
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="../pages/hobbies.html" class="nav__link">
+              <i class="uil uil-message nav__icon"></i>loisir
+            </a>
+          </li>
+        </ul>
+        <i class="uil uil-times nav__close" id="nav-close"></i>
+      </div>
+      <div class="nav__btns">
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="uil uil-apps"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
