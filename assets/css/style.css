@@ -56,6 +56,11 @@
   --z-modal: 1000;
 }
 
+.avatar {
+    height: 40px;
+    border-radius: 100px;
+}
+
 /* Font Size for larger devices */
 @media screen and (min-width: 968px) {
   :root {
@@ -276,7 +281,7 @@ img {
 }
 
 .home__social-icon {
-  font-size: 1.05rem;
+  font-size: 1.8rem;
   color: var(--first-color);
 }
 .home__social-icon:hover {

@@ -1,8 +1,0 @@
-services:
-  jekyll:
-    image: jekyll/jekyll:pages
-    command: sh -c "gem install webrick && jekyll serve --watch --force_polling --host 0.0.0.0"
-    ports:
-      - "4000:4000"
-    volumes:
-      - .:/srv/jekyll
