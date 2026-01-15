@@ -7,12 +7,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mon Portfolio</title>
   <base href="/partafolio/">
+
   <link rel="stylesheet" href="./assets/scss/main.css">
   <link rel="shortcut icon" href="./assets/img/avatar.jpeg" type="image/x-icon">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
 </head>
 
 <body>
+  <header class="header" id="header">
+    <nav class="nav container navbar">
+      <a href="/index.html" class="nav__logo"><img class="avatar" src="assets/img/avatar.jpeg" alt="avatar"></a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list grid">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">
+              <i class="uil uil-estate nav__icon"></i>Accueil
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/competences.html" class="nav__link">
+              <i class="uil uil-file-alt nav__icon"></i>Compétences
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/projects.html" class="nav__link">
+              <i class="uil uil-scenery nav__icon"></i>Projets
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/contact.html" class="nav__link">
+              <i class="uil uil-message nav__icon"></i>Contactez-moi
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="pages/hobbies.html" class="nav__link">
+              <i class="uil uil-message nav__icon"></i>loisir
+            </a>
+          </li>
+        </ul>
+        <i class="uil uil-times nav__close" id="nav-close"></i>
+      </div>
+      <div class="nav__btns">
+        <i class="uil uil-moon change-theme" id="theme-button"></i>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="uil uil-apps"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main class="main">
     <!--========================= Home =====================-->
@@ -251,10 +294,42 @@
 
   </main>
 
+  <footer class="footer">
+    <div class="footer__bg">
+      <div class="footer__container container grid">
+        <div>
+          <h1 class="footer__title">Venkatesh</h1>
+          <span class="footer__subtitle">Information Science Engineering Student</span>
+        </div>
+
+        <ul class="footer__links">
+          <li>
+            <a href="#qualification" class="footer__link">Qualification</a>
+          </li>
+          <li>
+            <a href="#portfolio" class="footer__link">Portfolio</a>
+          </li>
+          <li>
+            <a href="#contact" class="footer__link">Contact-Me</a>
+          </li>
+        </ul>
+
+        <div class="footer__socials">
+          <a href="https://www.instagram.com/venkateeshh/" class="footer__social" target="__blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://twitter.com/Venkateeshhh" target="__blank" class="footer__social">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <p class="footer__copy">&#169; Venkatesh. All right reserved</p>
+    </div>
+  </footer>
 
 
-
-    <script src="./assets/js/load-nav-footer.js"></script>
   <script type="text/javascript" src="./assets/js/swiper-bundle.min.js"></script>
   <script src="./assets/js/ptj.js"></script>
   <script src="https://kit.fontawesome.com/2205d59d52.js" crossorigin="anonymous"></script>
