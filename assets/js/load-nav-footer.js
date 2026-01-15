@@ -1,43 +1,36 @@
-function loadPartial(id, path) {
-  fetch(path)
-    .then(r => {
-      if (!r.ok) throw new Error(`Errore nel caricamento: ${r.status}`);
-      return r.text();
-    })
-    .then(html => {
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      const placeholder = document.querySelector(`#${id}`);
-      if (!placeholder) return;
-      doc.body.childNodes.forEach(node => placeholder.append(node));
-    })
-    .catch(err => console.error(err));
+// ====== Funzione per calcolare il path relativo dei partials ======
+function getPartialPath(file) {
+  const segments = window.location.pathname.split('/').filter(s => s);
+  // -1 perché l'ultimo segmento è il file HTML corrente
+  const depth = segments.length - 1;
+  let prefix = '';
+  for (let i = 0; i < depth; i++) prefix += '../';
+  return prefix + 'assets/partials/' + file;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const currentUrl = new URL(window.location.href);
-  let navPath, footerPath;
-
-  if (currentUrl.protocol == "https:") {
-    if (currentUrl.pathname === '/' || currentUrl.pathname.endsWith('/partafolio/')) {
-      console.log("helo deploi");
-      
-      navPath = '../assets/partials/navbar.html';
-      footerPath = '../assets/partials/footer.html';
-    } else {
-            console.log("helo deploi aver");
-      navPath = '../../assets/partials/navbar.html';
-      footerPath = '../../assets/partials/footer.html';
-    }
+// ====== Funzione asincrona per caricare un partial nel DOM ======
+async function loadPartial(id, path) {
+  try {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error(`Errore nel caricamento: ${response.status}`);
+    const html = await response.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const placeholder = document.querySelector(`#${id}`);
+    if (!placeholder) return;
+    // Appendo tutti i nodi del body
+    doc.body.childNodes.forEach(node => placeholder.append(node));
+    return true; // Indica che il partial è stato caricato
+  } catch (err) {
+    console.error(`Impossibile caricare ${path}:`, err);
+    return false;
   }
+}
 
-  if (currentUrl.pathname === '/' || currentUrl.pathname.endsWith('/index.html')) {
-    navPath = './assets/partials/navbar.html';
-    footerPath = './assets/partials/footer.html';
-  } else {
-    navPath = '../assets/partials/navbar.html';
-    footerPath = '../assets/partials/footer.html';
-  }
+// ====== Event listener per caricare navbar e footer ======
+document.addEventListener('DOMContentLoaded', async () => {
+  const navLoaded = await loadPartial('navbar-placeholder', getPartialPath('navbar.html'));
+  console.log('Navbar caricata?', navLoaded);
 
-  loadPartial('navbar-placeholder', navPath);
-  loadPartial('footer-placeholder', footerPath);
+  const footerLoaded = await loadPartial('footer-placeholder', getPartialPath('footer.html'));
+  console.log('Footer caricata?', footerLoaded);
 });
