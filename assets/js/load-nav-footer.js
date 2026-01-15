@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let navPath, footerPath;
 
   if (currentUrl.protocol == "https:") {
-    if (currentUrl.pathname === '/' || currentUrl.pathname.endsWith('/index.html')) {
+    if (currentUrl.pathname === '/' || currentUrl.pathname.endsWith('/partafolio/')) {
       console.log("helo deploi");
       
       navPath = '../assets/partials/navbar.html';
