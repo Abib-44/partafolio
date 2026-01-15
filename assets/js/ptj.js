@@ -7,11 +7,6 @@ if (navToggle) {
   });
 }
 
-if (navClose) {
-  navClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-  });
-}
 
   if (location.hostname.includes('github.io')) {
     const base = document.createElement('base');
