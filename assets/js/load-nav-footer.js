@@ -1,27 +1,25 @@
-function includeHTML(id, url) {
-  return fetch(url)
-    .then(r => r.text())
+const loadNavbar = () => {
+  const currentUrl = new URL(window.location.href);
+  
+  if (currentUrl.pathname == '/index.html') {
+    nav = './assets/partials/navbar.html'
+  } else {
+    nav = '../assets/partials/navbar.html'
+  }
+  fetch(nav)
+    .then(response => {
+      if (!response.ok) throw new Error(`Errore nel caricamento: ${response.status}`);
+      return response.text();
+    })
     .then(html => {
-      document.getElementById(id).innerHTML = html;
-    });
-}
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const placeholder = document.querySelector('#navbar-placeholder');
+      if (!placeholder) return;
 
-Promise.all([
-  includeHTML("navbar-placeholder", "/assets/partials/navbar.html"),
-  includeHTML("footer-placeholder", "/assets/partials/footer.html")
-]).then(() => {
-  const page = window.location.pathname
-    .split("/")
-    .pop()
-    .replace(".html", "");
+      doc.body.childNodes.forEach(node => placeholder.append(node));
+    })
+    .catch(err => console.error(err));
+};
 
-  const titles = {
-    index: "Benaboud | Accueil",
-    competences: "Compétences",
-    projects: "Projets",
-    contact: "Contactez-moi",
-    hobbies: "Loisirs"
-  };
-
-  document.title = titles[page] ?? "Benaboud";
-});
+document.addEventListener('DOMContentLoaded', loadNavbar);
