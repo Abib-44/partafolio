@@ -1,0 +1,137 @@
+/* ===================== PROJECTS SECTION ===================== */
+
+#projects {
+  position: relative;
+}
+
+/* ---------- Filters ---------- */
+
+.projects__filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--mb-1);
+  margin-bottom: var(--mb-2);
+}
+
+.filter-btn {
+  font-family: var(--body-font);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: var(--container-color);
+  color: var(--title-color);
+  border: 1px solid var(--first-color-lighter);
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: var(--first-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background-color: var(--first-color);
+  color: #fff;
+}
+
+/* ---------- Grid ---------- */
+
+.projects__container {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* ---------- Card ---------- */
+
+.project-card {
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ---------- Header ---------- */
+
+.project__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--mb-0-75);
+}
+
+.project__title {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+/* ---------- Category badge ---------- */
+
+.project__category {
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  color: var(--first-color);
+  background-color: var(--first-color-lighter);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+}
+
+/* ---------- Description ---------- */
+
+.project__description {
+  font-size: var(--small-font-size);
+  line-height: 1.65;
+  color: var(--text-color);
+  margin-bottom: var(--mb-1);
+}
+
+/* ---------- Tech stack ---------- */
+
+.project__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: var(--mb-1);
+}
+
+.project__stack li {
+  font-size: var(--smaller-font-size);
+  padding: 0.35rem 0.75rem;
+  background-color: var(--input-color);
+  border-radius: 0.5rem;
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+/* ---------- Link ---------- */
+
+.project-card .button {
+  margin-top: auto;
+}
+
+.project-card .button__icon {
+  transition: transform 0.3s ease;
+}
+
+.project-card .button:hover .button__icon {
+  transform: translateX(6px);
+}
+
+.projects__intro {
+  max-width: 720px;
+  margin: 0 auto var(--mb-2);
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  line-height: 1.6;
+}
