@@ -34,3 +34,30 @@ document.addEventListener('DOMContentLoaded', async () => {
   const footerLoaded = await loadPartial('footer-placeholder', getPartialPath('footer.html'));
   console.log('Footer caricata?', footerLoaded);
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const isDeploy = window.location.hostname === 'abib-44.github.io';
+  if (!isDeploy) return; // se siamo in locale, non facciamo niente
+
+  // Seleziono tutti i link nella navbar
+  const navLinks = document.querySelectorAll('nav a');
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+
+    // Sostituisco solo i link interni del sito
+    if (href.includes('index.html')) {
+      link.setAttribute('href', '/portfolio/');
+    } else if (href.includes('competences.html')) {
+      link.setAttribute('href', '/portfolio/pages/competences.html');
+    } else if (href.includes('projects.html')) {
+      link.setAttribute('href', '/portfolio/pages/projects.html');
+    } else if (href.includes('contact.html')) {
+      link.setAttribute('href', '/portfolio/pages/contact.html');
+    } else if (href.includes('hobbies.html')) {
+      link.setAttribute('href', '/portfolio/pages/hobbies.html');
+    }
+  });
+});
